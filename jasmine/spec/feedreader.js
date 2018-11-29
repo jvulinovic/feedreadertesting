@@ -69,6 +69,10 @@ $(function() {
             expect(menuElement).toBe('menu-hidden');
         });
 
+        /* The test checks that the menu element
+         * visibility changes when the menu element
+         * is clicked.
+         */
 
     });
 
