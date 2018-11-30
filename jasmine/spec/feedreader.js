@@ -74,7 +74,7 @@ $(function() {
          */
 
          it('the menu element changes visibility when clicked', function() {
-            const menu = document.querySelector('.menu-icon-link');
+            var menu = document.querySelector('.menu-icon-link');
             menu.click();
             expect(document.getElementsByTagName("BODY")[0].className).not.toBe('menu-hidden');
             menu.click();
@@ -95,11 +95,16 @@ $(function() {
 
     describe('Initial Entries', function() {
 
-        /* The test checks that the menu element
-         * is hidden by default.
-         */
+        beforeEach(function(done){
+          loadFeed(0, function(){
+            done();
+          });
+        });
 
-
+         it('checks that there is at least a single entry in the .feed container', function () {
+            var feedContainer = $('.feed').children();
+            expect(feedContainer.length).toBeGreaterThan(0)
+        });
 
       });
 
