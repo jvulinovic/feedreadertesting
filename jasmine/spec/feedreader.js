@@ -1,7 +1,7 @@
 /* feedreader.js
  *
  * This is the spec file that Jasmine will read and contains
- * all of the tests that will be run against your application.
+ * all of the tests that will be run against the application.
  */
 
 /* We're placing all of our tests within the $() function,
@@ -52,7 +52,6 @@ $(function() {
         });
     });
 
-
     /* This suite is all about the menu
     * and visibility and behaviour of certain elements.
     */
@@ -82,10 +81,10 @@ $(function() {
          });
     });
 
-        /* A test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         */
+    /* A test that ensures when the loadFeed
+     * function is called and completes its work, there is at least
+     * a single .entry element within the .feed container.
+     */
 
     describe('Initial Entries', function() {
 
@@ -99,16 +98,16 @@ $(function() {
             var feedContainer = $('.feed').children();
             expect(feedContainer.length).toBeGreaterThan(0)
         });
+    });
 
-      });
-
-      describe('New Feed Selection', function(){
+    describe('New Feed Selection', function(){
 
 
-        /* A test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         */
-         let initialFeed;
+    /* A test that ensures when a new feed is loaded
+     * by the loadFeed function that the content actually changes.
+     */
+
+        let initialFeed;
 
         beforeEach(function(done){
           loadFeed(0, function(){
@@ -124,7 +123,7 @@ $(function() {
              expect(initialFeed===currentFeed).toBe(false)
 
           });
-        });
+      });
 
 
 }());
