@@ -63,8 +63,8 @@ $(function() {
          */
 
         it('the menu element should be hidden by default', function() {
-            var menuElement = document.getElementsByTagName("BODY")[0].className;
-            expect(menuElement).toBe('menu-hidden');
+            var menuElement = document.getElementsByTagName("BODY")[0];
+            expect(menuElement.classList.contains('menu-hidden')).toBe(true);
         });
 
         /* The test checks that the menu element
@@ -74,10 +74,11 @@ $(function() {
 
          it('the menu element changes visibility when clicked', function() {
             var menu = document.querySelector('.menu-icon-link');
+            var menuElement = document.getElementsByTagName("BODY")[0];
             menu.click();
-            expect(document.getElementsByTagName("BODY")[0].className).not.toBe('menu-hidden');
+            expect(menuElement.classList.contains('menu-hidden')).toBe(false);
             menu.click();
-            expect(document.getElementsByTagName("BODY")[0].className).toBe('menu-hidden');
+            expect(menuElement.classList.contains('menu-hidden')).toBe(true);
          });
     });
 
@@ -95,8 +96,7 @@ $(function() {
         });
 
          it('checks that there is at least a single entry in the .feed container', function () {
-            var feedContainer = $('.feed').children();
-            expect(feedContainer.length).toBeGreaterThan(0)
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
     });
 
@@ -120,7 +120,7 @@ $(function() {
 
           it('content changes when feed is loaded', function(){
              let currentFeed = ($('.feed').children())[0].innerText;
-             expect(initialFeed===currentFeed).toBe(false)
+             expect(initialFeed).not.toEqual(currentFeed);
 
           });
       });
